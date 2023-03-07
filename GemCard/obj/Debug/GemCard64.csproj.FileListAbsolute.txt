@@ -1,0 +1,7 @@
+C:\Users\e.mueller\Downloads\SmartcardFrameworkWithWCFSCardService\SmartcardFramework\Smartcard_API\GemCard\bin\Debug\GemCard.dll
+C:\Users\e.mueller\Downloads\SmartcardFrameworkWithWCFSCardService\SmartcardFramework\Smartcard_API\GemCard\bin\Debug\GemCard.pdb
+C:\Users\e.mueller\Downloads\SmartcardFrameworkWithWCFSCardService\SmartcardFramework\Smartcard_API\GemCard\obj\Debug\GemCard64.csproj.AssemblyReference.cache
+C:\Users\e.mueller\Downloads\SmartcardFrameworkWithWCFSCardService\SmartcardFramework\Smartcard_API\GemCard\obj\Debug\GemCard64.csproj.ResolveComReference.cache
+C:\Users\e.mueller\Downloads\SmartcardFrameworkWithWCFSCardService\SmartcardFramework\Smartcard_API\GemCard\obj\Debug\GemCard64.csproj.CoreCompileInputs.cache
+C:\Users\e.mueller\Downloads\SmartcardFrameworkWithWCFSCardService\SmartcardFramework\Smartcard_API\GemCard\obj\Debug\GemCard.dll
+C:\Users\e.mueller\Downloads\SmartcardFrameworkWithWCFSCardService\SmartcardFramework\Smartcard_API\GemCard\obj\Debug\GemCard.pdb

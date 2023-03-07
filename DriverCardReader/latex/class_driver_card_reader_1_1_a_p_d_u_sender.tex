@@ -1,0 +1,210 @@
+\hypertarget{class_driver_card_reader_1_1_a_p_d_u_sender}{}\doxysection{Driver\+Card\+Reader.\+APDUSender Class Reference}
+\label{class_driver_card_reader_1_1_a_p_d_u_sender}\index{DriverCardReader.APDUSender@{DriverCardReader.APDUSender}}
+
+
+A Singleton Class used to send APDUs to the Smart Card. And some static utils to work with byte arrays.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_driver_card_reader_1_1_a_p_d_u_sender_a40d472a7f58aad580b6c5423cd56d9c6}\label{class_driver_card_reader_1_1_a_p_d_u_sender_a40d472a7f58aad580b6c5423cd56d9c6}} 
+void {\bfseries Open\+Smart\+Card\+Connection} (string reader)
+\begin{DoxyCompactList}\small\item\em connects to a card in the reader reader \end{DoxyCompactList}\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_driver_card_reader_1_1_a_p_d_u_sender_a3fdef7a985c04781193fd16705524bf9}{Send\+APDU}} (String command, byte? P1=null, byte? P2=null, byte\mbox{[}$\,$\mbox{]} additonal\+Parameters=null)
+\begin{DoxyCompactList}\small\item\em Sends an ADPU build from the Inputs to the card and returns the response if the Response\+Code was 9000 succesful all parameters despite command are optional an normally null. \end{DoxyCompactList}\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_driver_card_reader_1_1_a_p_d_u_sender_a9165c8c65def4e77731e7b23f6e1e0bf}{Send\+APDU}} (String command, int? P1=null, int? P2=null, int? additonal\+Parameters=null)
+\begin{DoxyCompactList}\small\item\em Sends an ADPU build from the Inputs to the card and returns the response if the Response\+Code was 9000 succesful all parameters despite command are optional an normally null But uses ints as parameters for easier use with read binary etc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_driver_card_reader_1_1_a_p_d_u_sender_a6ad213c5d72c442d19fc6d7d9a5174d5}\label{class_driver_card_reader_1_1_a_p_d_u_sender_a6ad213c5d72c442d19fc6d7d9a5174d5}} 
+static \mbox{\hyperlink{class_driver_card_reader_1_1_a_p_d_u_sender}{APDUSender}} {\bfseries get\+Instance} ()
+\item 
+static string \mbox{\hyperlink{class_driver_card_reader_1_1_a_p_d_u_sender_a5aa9f53d5fe136f4162ea92b142f0ce9}{Byte\+Array\+To\+String}} (byte\mbox{[}$\,$\mbox{]} ba)
+\begin{DoxyCompactList}\small\item\em turns a byte array into a string \end{DoxyCompactList}\item 
+static byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_driver_card_reader_1_1_a_p_d_u_sender_a360b41ccee30a9f1ce0bdc692dec2d64}{append\+Byte\+Array}} (byte\mbox{[}$\,$\mbox{]} src, byte\mbox{[}$\,$\mbox{]} to\+Append)
+\begin{DoxyCompactList}\small\item\em Appends a byte array to another. \end{DoxyCompactList}\item 
+static byte \mbox{\hyperlink{class_driver_card_reader_1_1_a_p_d_u_sender_a352e509b86b682873e5867899241fded}{int\+To\+Single\+Byte}} (int to\+Transform)
+\begin{DoxyCompactList}\small\item\em Casts a int into a single byte. \end{DoxyCompactList}\item 
+static byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_driver_card_reader_1_1_a_p_d_u_sender_a81c92d1a4e345d51353c54aa3ad5da7c}{int\+To\+Two\+Bytes}} (int to\+Transform)
+\begin{DoxyCompactList}\small\item\em casts a int into two a two bytes long byte array \end{DoxyCompactList}\item 
+static string \mbox{\hyperlink{class_driver_card_reader_1_1_a_p_d_u_sender_aa878f49f62a3fc7ca8408080f0716bda}{Remove\+Special\+Characters}} (string str)
+\begin{DoxyCompactList}\small\item\em Removes all special characters from a string only allows ascii also removes whitespaces!!! \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_driver_card_reader_1_1_a_p_d_u_sender_a5adfa52d80c7b1defa4775ecc9cb6139}\label{class_driver_card_reader_1_1_a_p_d_u_sender_a5adfa52d80c7b1defa4775ecc9cb6139}} 
+static string {\bfseries Stream\+To\+String} (Stream stream)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_driver_card_reader_1_1_a_p_d_u_sender_acc6eb1a51cd0660e6cbfba1a19d15312}\label{class_driver_card_reader_1_1_a_p_d_u_sender_acc6eb1a51cd0660e6cbfba1a19d15312}} 
+Card\+Native {\bfseries card\+Native} = new Card\+Native()
+\begin{DoxyCompactList}\small\item\em A Publicly accesable Smart\+Card Connection to the driver Card. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A Singleton Class used to send APDUs to the Smart Card. And some static utils to work with byte arrays. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_driver_card_reader_1_1_a_p_d_u_sender_a360b41ccee30a9f1ce0bdc692dec2d64}\label{class_driver_card_reader_1_1_a_p_d_u_sender_a360b41ccee30a9f1ce0bdc692dec2d64}} 
+\index{DriverCardReader.APDUSender@{DriverCardReader.APDUSender}!appendByteArray@{appendByteArray}}
+\index{appendByteArray@{appendByteArray}!DriverCardReader.APDUSender@{DriverCardReader.APDUSender}}
+\doxysubsubsection{\texorpdfstring{appendByteArray()}{appendByteArray()}}
+{\footnotesize\ttfamily static byte\mbox{[}$\,$\mbox{]} Driver\+Card\+Reader.\+APDUSender.\+append\+Byte\+Array (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{src,  }\item[{byte\mbox{[}$\,$\mbox{]}}]{to\+Append }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Appends a byte array to another. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & the byte array which data is to be appended to\\
+\hline
+{\em to\+Append} & the byte array that is to be appended\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a byte array which contains the complete byte array
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_driver_card_reader_1_1_a_p_d_u_sender_a5aa9f53d5fe136f4162ea92b142f0ce9}\label{class_driver_card_reader_1_1_a_p_d_u_sender_a5aa9f53d5fe136f4162ea92b142f0ce9}} 
+\index{DriverCardReader.APDUSender@{DriverCardReader.APDUSender}!ByteArrayToString@{ByteArrayToString}}
+\index{ByteArrayToString@{ByteArrayToString}!DriverCardReader.APDUSender@{DriverCardReader.APDUSender}}
+\doxysubsubsection{\texorpdfstring{ByteArrayToString()}{ByteArrayToString()}}
+{\footnotesize\ttfamily static string Driver\+Card\+Reader.\+APDUSender.\+Byte\+Array\+To\+String (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{ba }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+turns a byte array into a string 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ba} & the byte array which is to be turned into a string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the byte array as a string
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_driver_card_reader_1_1_a_p_d_u_sender_a352e509b86b682873e5867899241fded}\label{class_driver_card_reader_1_1_a_p_d_u_sender_a352e509b86b682873e5867899241fded}} 
+\index{DriverCardReader.APDUSender@{DriverCardReader.APDUSender}!intToSingleByte@{intToSingleByte}}
+\index{intToSingleByte@{intToSingleByte}!DriverCardReader.APDUSender@{DriverCardReader.APDUSender}}
+\doxysubsubsection{\texorpdfstring{intToSingleByte()}{intToSingleByte()}}
+{\footnotesize\ttfamily static byte Driver\+Card\+Reader.\+APDUSender.\+int\+To\+Single\+Byte (\begin{DoxyParamCaption}\item[{int}]{to\+Transform }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Casts a int into a single byte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Transform} & integer to be cast\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the single byte
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & thrown if int was too big to fit into a single byte\\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_driver_card_reader_1_1_a_p_d_u_sender_a81c92d1a4e345d51353c54aa3ad5da7c}\label{class_driver_card_reader_1_1_a_p_d_u_sender_a81c92d1a4e345d51353c54aa3ad5da7c}} 
+\index{DriverCardReader.APDUSender@{DriverCardReader.APDUSender}!intToTwoBytes@{intToTwoBytes}}
+\index{intToTwoBytes@{intToTwoBytes}!DriverCardReader.APDUSender@{DriverCardReader.APDUSender}}
+\doxysubsubsection{\texorpdfstring{intToTwoBytes()}{intToTwoBytes()}}
+{\footnotesize\ttfamily static byte\mbox{[}$\,$\mbox{]} Driver\+Card\+Reader.\+APDUSender.\+int\+To\+Two\+Bytes (\begin{DoxyParamCaption}\item[{int}]{to\+Transform }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+casts a int into two a two bytes long byte array 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Transform} & the intetger to be transformed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+byte array containing the integer as two bytes
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & Is thrown if the int is too big for two bytes\\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_driver_card_reader_1_1_a_p_d_u_sender_aa878f49f62a3fc7ca8408080f0716bda}\label{class_driver_card_reader_1_1_a_p_d_u_sender_aa878f49f62a3fc7ca8408080f0716bda}} 
+\index{DriverCardReader.APDUSender@{DriverCardReader.APDUSender}!RemoveSpecialCharacters@{RemoveSpecialCharacters}}
+\index{RemoveSpecialCharacters@{RemoveSpecialCharacters}!DriverCardReader.APDUSender@{DriverCardReader.APDUSender}}
+\doxysubsubsection{\texorpdfstring{RemoveSpecialCharacters()}{RemoveSpecialCharacters()}}
+{\footnotesize\ttfamily static string Driver\+Card\+Reader.\+APDUSender.\+Remove\+Special\+Characters (\begin{DoxyParamCaption}\item[{string}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Removes all special characters from a string only allows ascii also removes whitespaces!!! 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & the string that needs changing\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string cleared of all whitespaces and non ascii
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_driver_card_reader_1_1_a_p_d_u_sender_a3fdef7a985c04781193fd16705524bf9}\label{class_driver_card_reader_1_1_a_p_d_u_sender_a3fdef7a985c04781193fd16705524bf9}} 
+\index{DriverCardReader.APDUSender@{DriverCardReader.APDUSender}!SendAPDU@{SendAPDU}}
+\index{SendAPDU@{SendAPDU}!DriverCardReader.APDUSender@{DriverCardReader.APDUSender}}
+\doxysubsubsection{\texorpdfstring{SendAPDU()}{SendAPDU()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily byte\mbox{[}$\,$\mbox{]} Driver\+Card\+Reader.\+APDUSender.\+Send\+APDU (\begin{DoxyParamCaption}\item[{String}]{command,  }\item[{byte?}]{P1 = {\ttfamily null},  }\item[{byte?}]{P2 = {\ttfamily null},  }\item[{byte\mbox{[}$\,$\mbox{]}}]{additonal\+Parameters = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+Sends an ADPU build from the Inputs to the card and returns the response if the Response\+Code was 9000 succesful all parameters despite command are optional an normally null. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & Command to be send\\
+\hline
+{\em P1} & byte P1\\
+\hline
+{\em P2} & byte P2\\
+\hline
+{\em additonal\+Parameters} & Some commands require additional Parameters for expample SELECT\+\_\+\+FILE requires a FILEID\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_driver_card_reader_1_1_a_p_d_u_sender_a9165c8c65def4e77731e7b23f6e1e0bf}\label{class_driver_card_reader_1_1_a_p_d_u_sender_a9165c8c65def4e77731e7b23f6e1e0bf}} 
+\index{DriverCardReader.APDUSender@{DriverCardReader.APDUSender}!SendAPDU@{SendAPDU}}
+\index{SendAPDU@{SendAPDU}!DriverCardReader.APDUSender@{DriverCardReader.APDUSender}}
+\doxysubsubsection{\texorpdfstring{SendAPDU()}{SendAPDU()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily byte\mbox{[}$\,$\mbox{]} Driver\+Card\+Reader.\+APDUSender.\+Send\+APDU (\begin{DoxyParamCaption}\item[{String}]{command,  }\item[{int?}]{P1 = {\ttfamily null},  }\item[{int?}]{P2 = {\ttfamily null},  }\item[{int?}]{additonal\+Parameters = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+Sends an ADPU build from the Inputs to the card and returns the response if the Response\+Code was 9000 succesful all parameters despite command are optional an normally null But uses ints as parameters for easier use with read binary etc. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & \\
+\hline
+{\em P1} & \\
+\hline
+{\em P2} & \\
+\hline
+{\em additonal\+Parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\+Command\+Exception} & \\
+\hline
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+APDUSender.\+cs\end{DoxyCompactItemize}

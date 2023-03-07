@@ -1,0 +1,134 @@
+\hypertarget{class_driver_card_reader_1_1_smart_card_file}{}\doxysection{Driver\+Card\+Reader.\+Smart\+Card\+File Class Reference}
+\label{class_driver_card_reader_1_1_smart_card_file}\index{DriverCardReader.SmartCardFile@{DriverCardReader.SmartCardFile}}
+
+
+Class to represent a Smart\+Card file, on creation downloads file from card.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_driver_card_reader_1_1_smart_card_file_a446bc22998d19e88589d68e4c93a9c14}{Smart\+Card\+File}} (string \mbox{\hyperlink{class_driver_card_reader_1_1_smart_card_file_a6e6d82346db6e1bdb7ff4325b0982a7a}{file\+Name}})
+\begin{DoxyCompactList}\small\item\em Dont Use this Constructor its only for comapring files in the List!! \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_driver_card_reader_1_1_smart_card_file_a30674604c841a41512ee36bb14aac0ba}\label{class_driver_card_reader_1_1_smart_card_file_a30674604c841a41512ee36bb14aac0ba}} 
+{\bfseries Smart\+Card\+File} (string \mbox{\hyperlink{class_driver_card_reader_1_1_smart_card_file_a6e6d82346db6e1bdb7ff4325b0982a7a}{file\+Name}}, byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_driver_card_reader_1_1_smart_card_file_a77964145b3801bdf63febd64ddb60b1d}{file\+Identifier}}, int \mbox{\hyperlink{class_driver_card_reader_1_1_smart_card_file_a500b53d9a0baf62100a12f3666a7f828}{file\+Size}})
+\item 
+void \mbox{\hyperlink{class_driver_card_reader_1_1_smart_card_file_ad5d792c1ea88b3dd28a20b82dd51774c}{download\+File}} (bool called\+By\+Download\+Hashed)
+\begin{DoxyCompactList}\small\item\em Downloads the Contents of the File from the smartcard. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_driver_card_reader_1_1_smart_card_file_ae200091eaf14b1b38b847fd444742ade}\label{class_driver_card_reader_1_1_smart_card_file_ae200091eaf14b1b38b847fd444742ade}} 
+void {\bfseries download\+File\+With\+Signature} ()
+\begin{DoxyCompactList}\small\item\em Downloads the File and its signature stored in the public variable signature and content. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_driver_card_reader_1_1_smart_card_file_a27c317a21fa2964fcf99f94264a86b49}\label{class_driver_card_reader_1_1_smart_card_file_a27c317a21fa2964fcf99f94264a86b49}} 
+void {\bfseries Select} ()
+\begin{DoxyCompactList}\small\item\em Function which selects this file. \end{DoxyCompactList}\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_driver_card_reader_1_1_smart_card_file_aba1bd96ccf7e45dd33493fa6d82f74e7}{Save}} (byte\mbox{[}$\,$\mbox{]} to\+Append\+To)
+\begin{DoxyCompactList}\small\item\em appends data of this smartcard to the byte array given in the function \end{DoxyCompactList}\item 
+override bool \mbox{\hyperlink{class_driver_card_reader_1_1_smart_card_file_a4d41c353dcb1fa24b25011488f40df8d}{Equals}} (object obj)
+\begin{DoxyCompactList}\small\item\em Overwrite Equals two smart\+Card\+Files are equals if their name is the Same. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_driver_card_reader_1_1_smart_card_file_a77964145b3801bdf63febd64ddb60b1d}\label{class_driver_card_reader_1_1_smart_card_file_a77964145b3801bdf63febd64ddb60b1d}} 
+byte\mbox{[}$\,$\mbox{]} {\bfseries file\+Identifier}
+\begin{DoxyCompactList}\small\item\em 2 Byte long byte array that contains the identifier of a file \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_driver_card_reader_1_1_smart_card_file_a500b53d9a0baf62100a12f3666a7f828}\label{class_driver_card_reader_1_1_smart_card_file_a500b53d9a0baf62100a12f3666a7f828}} 
+int {\bfseries file\+Size}
+\begin{DoxyCompactList}\small\item\em file\+Size as integer \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_driver_card_reader_1_1_smart_card_file_a0aca9cf98399332a94ada845eaf11fa4}\label{class_driver_card_reader_1_1_smart_card_file_a0aca9cf98399332a94ada845eaf11fa4}} 
+byte\mbox{[}$\,$\mbox{]} {\bfseries content}
+\begin{DoxyCompactList}\small\item\em Contents of the file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_driver_card_reader_1_1_smart_card_file_ac1965420bbb83e9c86e14868ab578df3}\label{class_driver_card_reader_1_1_smart_card_file_ac1965420bbb83e9c86e14868ab578df3}} 
+byte\mbox{[}$\,$\mbox{]} {\bfseries signature}
+\begin{DoxyCompactList}\small\item\em Signature of the Smart\+Card\+File. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_driver_card_reader_1_1_smart_card_file_a402d866bd7e97239838df443c94f0a19}\label{class_driver_card_reader_1_1_smart_card_file_a402d866bd7e97239838df443c94f0a19}} 
+byte\mbox{[}$\,$\mbox{]} {\bfseries tag\+TLV}
+\begin{DoxyCompactList}\small\item\em Used to store the Identifier of the file for the saving in a ddd file it is file tag + 00. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_driver_card_reader_1_1_smart_card_file_a792b6c30ad64a06c4568c16ea80bb25f}\label{class_driver_card_reader_1_1_smart_card_file_a792b6c30ad64a06c4568c16ea80bb25f}} 
+byte\mbox{[}$\,$\mbox{]} {\bfseries tag\+Signature\+TLV}
+\begin{DoxyCompactList}\small\item\em used to store the identifier of the file for saving in a ddd file it is file tag + 01 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_driver_card_reader_1_1_smart_card_file_adcbe1f1ac490caabf8e131d1ffcbd2ad}\label{class_driver_card_reader_1_1_smart_card_file_adcbe1f1ac490caabf8e131d1ffcbd2ad}} 
+byte\mbox{[}$\,$\mbox{]} {\bfseries length\+TLV} = new byte\mbox{[}2\mbox{]}
+\begin{DoxyCompactList}\small\item\em stores the file length in specified tlv format \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_driver_card_reader_1_1_smart_card_file_a6e6d82346db6e1bdb7ff4325b0982a7a}\label{class_driver_card_reader_1_1_smart_card_file_a6e6d82346db6e1bdb7ff4325b0982a7a}} 
+string {\bfseries file\+Name}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em file\+Name as String \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to represent a Smart\+Card file, on creation downloads file from card. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_driver_card_reader_1_1_smart_card_file_a446bc22998d19e88589d68e4c93a9c14}\label{class_driver_card_reader_1_1_smart_card_file_a446bc22998d19e88589d68e4c93a9c14}} 
+\index{DriverCardReader.SmartCardFile@{DriverCardReader.SmartCardFile}!SmartCardFile@{SmartCardFile}}
+\index{SmartCardFile@{SmartCardFile}!DriverCardReader.SmartCardFile@{DriverCardReader.SmartCardFile}}
+\doxysubsubsection{\texorpdfstring{SmartCardFile()}{SmartCardFile()}}
+{\footnotesize\ttfamily Driver\+Card\+Reader.\+Smart\+Card\+File.\+Smart\+Card\+File (\begin{DoxyParamCaption}\item[{string}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Dont Use this Constructor its only for comapring files in the List!! 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & name of the file\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_driver_card_reader_1_1_smart_card_file_ad5d792c1ea88b3dd28a20b82dd51774c}\label{class_driver_card_reader_1_1_smart_card_file_ad5d792c1ea88b3dd28a20b82dd51774c}} 
+\index{DriverCardReader.SmartCardFile@{DriverCardReader.SmartCardFile}!downloadFile@{downloadFile}}
+\index{downloadFile@{downloadFile}!DriverCardReader.SmartCardFile@{DriverCardReader.SmartCardFile}}
+\doxysubsubsection{\texorpdfstring{downloadFile()}{downloadFile()}}
+{\footnotesize\ttfamily void Driver\+Card\+Reader.\+Smart\+Card\+File.\+download\+File (\begin{DoxyParamCaption}\item[{bool}]{called\+By\+Download\+Hashed }\end{DoxyParamCaption})}
+
+
+
+Downloads the Contents of the File from the smartcard. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em called\+By\+Download\+Hashed} & ALWAYS falsed just used internally to skip selecting File if called by download with signature\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_driver_card_reader_1_1_smart_card_file_a4d41c353dcb1fa24b25011488f40df8d}\label{class_driver_card_reader_1_1_smart_card_file_a4d41c353dcb1fa24b25011488f40df8d}} 
+\index{DriverCardReader.SmartCardFile@{DriverCardReader.SmartCardFile}!Equals@{Equals}}
+\index{Equals@{Equals}!DriverCardReader.SmartCardFile@{DriverCardReader.SmartCardFile}}
+\doxysubsubsection{\texorpdfstring{Equals()}{Equals()}}
+{\footnotesize\ttfamily override bool Driver\+Card\+Reader.\+Smart\+Card\+File.\+Equals (\begin{DoxyParamCaption}\item[{object}]{obj }\end{DoxyParamCaption})}
+
+
+
+Overwrite Equals two smart\+Card\+Files are equals if their name is the Same. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_driver_card_reader_1_1_smart_card_file_aba1bd96ccf7e45dd33493fa6d82f74e7}\label{class_driver_card_reader_1_1_smart_card_file_aba1bd96ccf7e45dd33493fa6d82f74e7}} 
+\index{DriverCardReader.SmartCardFile@{DriverCardReader.SmartCardFile}!Save@{Save}}
+\index{Save@{Save}!DriverCardReader.SmartCardFile@{DriverCardReader.SmartCardFile}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily byte\mbox{[}$\,$\mbox{]} Driver\+Card\+Reader.\+Smart\+Card\+File.\+Save (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{to\+Append\+To }\end{DoxyParamCaption})}
+
+
+
+appends data of this smartcard to the byte array given in the function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Append\+To} & the byte array the data is to be appended to\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Smart\+Card\+File.\+cs\end{DoxyCompactItemize}

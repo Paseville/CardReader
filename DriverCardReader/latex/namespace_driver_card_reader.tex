@@ -1,0 +1,23 @@
+\hypertarget{namespace_driver_card_reader}{}\doxysection{Driver\+Card\+Reader Namespace Reference}
+\label{namespace_driver_card_reader}\index{DriverCardReader@{DriverCardReader}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_driver_card_reader_1_1_a_p_d_u_sender}{APDUSender}}
+\begin{DoxyCompactList}\small\item\em A Singleton Class used to send APDUs to the Smart Card. And some static utils to work with byte arrays. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_driver_card_reader_1_1_card_reader}{Card\+Reader}}
+\begin{DoxyCompactList}\small\item\em Used mostly for ini method which starts the cardeventloop to listen for cardremoved and card inserted events. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_driver_card_reader_1_1_illegal_command_exception}{Illegal\+Command\+Exception}}
+\item 
+class \mbox{\hyperlink{class_driver_card_reader_1_1_smart_card}{Smart\+Card}}
+\begin{DoxyCompactList}\small\item\em A class that represents a Single smartcard. Upon init all the data is download from the card and saved. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_driver_card_reader_1_1_smart_card_file}{Smart\+Card\+File}}
+\begin{DoxyCompactList}\small\item\em Class to represent a Smart\+Card file, on creation downloads file from card. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_driver_card_reader_1_1_status_changed_event_args}{Status\+Changed\+Event\+Args}}
+\begin{DoxyCompactList}\small\item\em Simple event args to store the string the status text needs to be changed to. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_driver_card_reader_aba6759b9e77ff7e4de832262e8a4864d}\label{namespace_driver_card_reader_aba6759b9e77ff7e4de832262e8a4864d}} 
+delegate void {\bfseries Status\+Changed\+Event\+Handler} (object sender, \mbox{\hyperlink{class_driver_card_reader_1_1_status_changed_event_args}{Status\+Changed\+Event\+Args}} e)
+\end{DoxyCompactItemize}
