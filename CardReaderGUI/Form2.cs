@@ -92,7 +92,6 @@ namespace CardReaderGUI
             {
                 
                 string driverName = Path.GetFileNameWithoutExtension(dddFile);
-                string driverNameWithDate = driverName + DateTime.Now.ToString("d");
                 byte[] filecontent = System.IO.File.ReadAllBytes(dddFile);
                 string userName = this.username;
                 string password = this.password;
@@ -105,7 +104,7 @@ namespace CardReaderGUI
 
                 //prepare post request
                 Debug.WriteLine("Sending Request with parametes:" + userName + password);
-                string apiURL = "http://localhost:2020/lurz/remotefiles?user="+ userName+ "&password="+ password + "&driverName=" + driverNameWithDate;
+                string apiURL = "https://tstapi.gpsoverip.de/lurz/remotefiles?user="+ userName+ "&password="+ password + "&driverCardID=" + driverName;
                 
                 WebRequest request = WebRequest.Create(apiURL);
                 request.Method = "POST";
