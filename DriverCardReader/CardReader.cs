@@ -51,6 +51,9 @@ namespace DriverCardReader
             this.filePath = filePath;
             apduSender = APDUSender.getInstance();
             readers = apduSender.cardNative.ListReaders();
+            foreach(string reader in readers){
+                Debug.WriteLine(reader);
+            }
             apduSender.cardNative.StartCardEvents(readers[0]);
             apduSender.cardNative.OnCardInserted += CardNative_OnCardInserted;
             apduSender.cardNative.OnCardRemoved += CardNative_OnCardRemoved;
@@ -65,9 +68,13 @@ namespace DriverCardReader
         private void CardNative_OnCardInserted(string reader)
         {
             StatusChangedEventHandler handler = EventHandler;
-            apduSender.OpenSmartCardConnection(readers[0]);
-    
-            try{
+
+            
+
+            try
+            {
+                //apduSender.OpenSmartCardConnection(readers[0]) moved into try catch block
+                apduSender.OpenSmartCardConnection(readers[0]);
                 OnStatusChanged("Reading Card...");
                 driverCard = new SmartCard(filePath);
                 OnStatusChanged("Done Reading Card");
@@ -94,7 +101,15 @@ namespace DriverCardReader
             {
                 Debug.WriteLine("Dont remove the Card while its being read");
             }
-            apduSender.cardNative.Disconnect(DISCONNECT.Eject);
+            try
+            {
+                apduSender.cardNative.Disconnect(DISCONNECT.Eject);
+            }
+            catch(Exception e)
+            {
+                OnStatusChanged("Error. Reinsert Card");
+            }
+            
             driverCard = null;
         }
     }

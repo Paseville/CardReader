@@ -103,7 +103,6 @@ namespace CardReaderGUI
                 }
 
                 //prepare post request
-                Debug.WriteLine("Sending Request with parametes:" + userName + password);
                 string apiURL = "https://tstapi.gpsoverip.de/lurz/remotefiles?user="+ userName+ "&password="+ password + "&driverCardID=" + driverName;
                 
                 WebRequest request = WebRequest.Create(apiURL);
@@ -121,11 +120,10 @@ namespace CardReaderGUI
                 }
                 
                 writeBodyStream.Write(filecontent, 0, filecontent.Length);
-                string filecontentAs64string = Convert.ToBase64String(filecontent);
-                byte[] filecontentAs64 = Convert.FromBase64String(filecontentAs64string);
+           
                 HttpWebResponse response = null;
                     
-                System.IO.File.WriteAllBytes("C:/develop/writtencapp.ddd", filecontent);
+               
                 try { 
                        response = (HttpWebResponse)request.GetResponse(); 
                      }
@@ -137,11 +135,15 @@ namespace CardReaderGUI
                 if(response.StatusCode == HttpStatusCode.OK)
                 {
                     statusLabel.Text = "File: " + Path.GetFileNameWithoutExtension(dddFile) + " uploaded succesfully";
+
+                    //move file to archive/success
                 }
                 else
                 {
                     statusLabel.Text = "Error uploading File " + Path.GetFileNameWithoutExtension(dddFile) + " please try again";
                     break;
+
+                    //move file to archive/error
                 };
                 
                 Debug.WriteLine(dddFile);

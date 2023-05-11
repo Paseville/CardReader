@@ -90,7 +90,7 @@ namespace CardReaderGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(254, 111);
+            this.ClientSize = new System.Drawing.Size(255, 116);
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.directoryPathText);
             this.Controls.Add(this.chosenDirectoryText);
