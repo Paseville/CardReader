@@ -11,26 +11,76 @@ using Windows.Devices.SmartCards;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Storage.Streams;
 using GemCard;
-
+using System.Threading;
 
 namespace DriverCardReader
 {
     /// <summary>
     /// A Singleton Class used to send APDUs to the Smart Card. And some static utils to work with byte arrays
     /// </summary>
-    public sealed class APDUSender
+    public class APDUSender
     {
         private static APDUSender instance = null;
         /// <summary>
         /// A Publicly accesable SmartCard 
         /// Connection to the driver Card
         /// </summary>
-        public CardNative cardNative = new CardNative();
-
+        public string[] Readers { get; private set; }
+        public  CardNative cardNativeDriver = new CardNative();
+        public event ReaderListChangedEventHandler readerListChanged;
+        public CardNative cardNativeNFC = new CardNative();
+        public delegate void ReaderListChangedEventHandler(object s, EventArgs e);
         private APDUSender(){
             //OpenSmartCardConnection();
+            Timer checkReaders = new Timer(OnUpdateReaders, null, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
          }
 
+        protected virtual void OnUpdateReaders(object state)
+        {
+            string[] readersOld = Readers;
+            Debug.WriteLine("test1");
+            try
+            {
+                Readers = cardNativeDriver.ListReaders();
+            }catch(Exception e)
+            {
+                return;
+            }
+            
+            bool issame = true;
+
+            if(readersOld != null && Readers != null) {
+                if(readersOld.Length != Readers.Length)
+                {
+                    issame = false;
+                }
+                else
+                {
+                    for (int i = 0; i < Readers.Length; i++)
+                    {
+                        if (!readersOld[i].Equals(Readers[i]))
+                        {
+                            issame = false;
+                        }
+                    }
+                }
+                    
+                Debug.WriteLine("test");
+
+            }else if( (readersOld != null && Readers == null ) || (readersOld == null && Readers != null))
+            {
+                issame = false;
+            }
+           
+
+            if (!issame)
+            {
+                ReaderListChangedEventHandler handler = readerListChanged;
+                Debug.WriteLine("handler Invoked");
+                handler.Invoke(this, new EventArgs());
+            }
+            Thread.Sleep(1000);
+        }
         public static APDUSender getInstance()
         {
             if(instance == null)
@@ -160,7 +210,7 @@ namespace DriverCardReader
         {
 
             
-            cardNative.Connect(reader, SHARE.Shared, PROTOCOL.T0orT1);
+            cardNativeDriver.Connect(reader, SHARE.Shared, PROTOCOL.T0orT1);
 
   
 
@@ -211,10 +261,10 @@ namespace DriverCardReader
             //API gets buffer length over the single bytes set in command so use another constructor
             if (command.Equals("COMPUTE_DIGITAL_SIGNATURE"))
             {
-                response = cardNative.Transmit(new APDUCommand(readyToSendAPDU, (byte) 0x80));
+                response = cardNativeDriver.Transmit(new APDUCommand(readyToSendAPDU, (byte) 0x80));
             } else
             {
-                response = cardNative.Transmit(new APDUCommand(readyToSendAPDU));
+                response = cardNativeDriver.Transmit(new APDUCommand(readyToSendAPDU));
             }
             
 
@@ -277,7 +327,7 @@ namespace DriverCardReader
 
 
             
-            response = cardNative.Transmit(new APDUCommand(readyToSendAPDU, IntToSingleByte((int)additonalParameters)));
+            response = cardNativeDriver.Transmit(new APDUCommand(readyToSendAPDU, IntToSingleByte((int)additonalParameters)));
 
 
 

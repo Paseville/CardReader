@@ -43,6 +43,8 @@ namespace CardReaderGUI
             this.nfcStatusLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxNFC = new System.Windows.Forms.ComboBox();
+            this.okButtonFahrerkarten = new System.Windows.Forms.Button();
+            this.okButtonNFC = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // chooseDirectory
@@ -96,7 +98,7 @@ namespace CardReaderGUI
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.Location = new System.Drawing.Point(63, 9);
+            this.label1.Location = new System.Drawing.Point(74, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 18);
             this.label1.TabIndex = 5;
@@ -105,16 +107,18 @@ namespace CardReaderGUI
             // 
             // comboBoxFahrer
             // 
+            this.comboBoxFahrer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFahrer.FormattingEnabled = true;
             this.comboBoxFahrer.Location = new System.Drawing.Point(81, 104);
             this.comboBoxFahrer.Name = "comboBoxFahrer";
             this.comboBoxFahrer.Size = new System.Drawing.Size(121, 21);
             this.comboBoxFahrer.TabIndex = 6;
+            this.comboBoxFahrer.SelectedIndexChanged += new System.EventHandler(this.comboBoxFahrer_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 111);
+            this.label2.Location = new System.Drawing.Point(12, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 7;
@@ -133,11 +137,12 @@ namespace CardReaderGUI
             // nfcStatusLabel
             // 
             this.nfcStatusLabel.AutoSize = true;
-            this.nfcStatusLabel.Location = new System.Drawing.Point(386, 43);
+            this.nfcStatusLabel.Location = new System.Drawing.Point(384, 59);
             this.nfcStatusLabel.Name = "nfcStatusLabel";
             this.nfcStatusLabel.Size = new System.Drawing.Size(170, 13);
             this.nfcStatusLabel.TabIndex = 9;
             this.nfcStatusLabel.Text = "Bitte einen Kartenleser auswählen!";
+            this.nfcStatusLabel.Click += new System.EventHandler(this.nfcStatusLabel_Click);
             // 
             // label4
             // 
@@ -151,17 +156,41 @@ namespace CardReaderGUI
             // 
             // comboBoxNFC
             // 
+            this.comboBoxNFC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNFC.FormattingEnabled = true;
             this.comboBoxNFC.Location = new System.Drawing.Point(433, 102);
             this.comboBoxNFC.Name = "comboBoxNFC";
             this.comboBoxNFC.Size = new System.Drawing.Size(121, 21);
             this.comboBoxNFC.TabIndex = 11;
+            this.comboBoxNFC.SelectedIndexChanged += new System.EventHandler(this.comboBoxNFC_SelectedIndexChanged);
+            // 
+            // okButtonFahrerkarten
+            // 
+            this.okButtonFahrerkarten.Location = new System.Drawing.Point(67, 131);
+            this.okButtonFahrerkarten.Name = "okButtonFahrerkarten";
+            this.okButtonFahrerkarten.Size = new System.Drawing.Size(102, 23);
+            this.okButtonFahrerkarten.TabIndex = 12;
+            this.okButtonFahrerkarten.Text = "Bestätigen";
+            this.okButtonFahrerkarten.UseVisualStyleBackColor = true;
+            this.okButtonFahrerkarten.Click += new System.EventHandler(this.okButtonFahrerkarten_Click);
+            // 
+            // okButtonNFC
+            // 
+            this.okButtonNFC.Location = new System.Drawing.Point(433, 131);
+            this.okButtonNFC.Name = "okButtonNFC";
+            this.okButtonNFC.Size = new System.Drawing.Size(102, 23);
+            this.okButtonNFC.TabIndex = 13;
+            this.okButtonNFC.Text = "Bestätigen";
+            this.okButtonNFC.UseVisualStyleBackColor = true;
+            this.okButtonNFC.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 135);
+            this.ClientSize = new System.Drawing.Size(606, 166);
+            this.Controls.Add(this.okButtonNFC);
+            this.Controls.Add(this.okButtonFahrerkarten);
             this.Controls.Add(this.comboBoxNFC);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.nfcStatusLabel);
@@ -196,5 +225,7 @@ namespace CardReaderGUI
         private System.Windows.Forms.Label nfcStatusLabel;
         private System.Windows.Forms.Label label4;
         private ComboBox comboBoxNFC;
+        private Button okButtonFahrerkarten;
+        private Button okButtonNFC;
     }
 }

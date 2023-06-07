@@ -74,3 +74,5 @@ C:\develop\CompleteReader\DriverCardReader\obj\Debug\DriverCardReader.csproj.Cor
 C:\develop\CompleteReader\DriverCardReader\obj\Debug\DriverCardReader.csproj.CopyComplete
 C:\develop\CompleteReader\DriverCardReader\obj\Debug\DriverCardReader.dll
 C:\develop\CompleteReader\DriverCardReader\obj\Debug\DriverCardReader.pdb
+C:\develop\CompleteReader\DriverCardReader\bin\Debug\Newtonsoft.Json.dll
+C:\develop\CompleteReader\DriverCardReader\bin\Debug\Newtonsoft.Json.xml

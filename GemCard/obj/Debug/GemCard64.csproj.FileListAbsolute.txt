@@ -5,3 +5,10 @@ C:\Users\e.mueller\Downloads\SmartcardFrameworkWithWCFSCardService\SmartcardFram
 C:\Users\e.mueller\Downloads\SmartcardFrameworkWithWCFSCardService\SmartcardFramework\Smartcard_API\GemCard\obj\Debug\GemCard64.csproj.CoreCompileInputs.cache
 C:\Users\e.mueller\Downloads\SmartcardFrameworkWithWCFSCardService\SmartcardFramework\Smartcard_API\GemCard\obj\Debug\GemCard.dll
 C:\Users\e.mueller\Downloads\SmartcardFrameworkWithWCFSCardService\SmartcardFramework\Smartcard_API\GemCard\obj\Debug\GemCard.pdb
+C:\develop\CompleteReader\GemCard\bin\Debug\GemCard.dll
+C:\develop\CompleteReader\GemCard\bin\Debug\GemCard.pdb
+C:\develop\CompleteReader\GemCard\obj\Debug\GemCard64.csproj.AssemblyReference.cache
+C:\develop\CompleteReader\GemCard\obj\Debug\GemCard64.csproj.ResolveComReference.cache
+C:\develop\CompleteReader\GemCard\obj\Debug\GemCard64.csproj.CoreCompileInputs.cache
+C:\develop\CompleteReader\GemCard\obj\Debug\GemCard.dll
+C:\develop\CompleteReader\GemCard\obj\Debug\GemCard.pdb

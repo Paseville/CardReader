@@ -45,6 +45,7 @@ namespace GemCard
         public static UInt32 VENDOR_IFD_TYPE { get { return SCardAttrValue(SCARD_CLASS_VENDOR_DEFINED, 0x0101); } }
         public static UInt32 VENDOR_IFD_VERSION { get { return SCardAttrValue(SCARD_CLASS_VENDOR_DEFINED, 0x0102); } }
         public static UInt32 VENDOR_IFD_SERIAL_NO { get { return SCardAttrValue(SCARD_CLASS_VENDOR_DEFINED, 0x0103); } }
+      
     }
 
     /// <summary>
@@ -67,7 +68,7 @@ namespace GemCard
 
         protected bool m_bRunCardDetection = true;
         protected Thread m_thread = null;
-
+        private string eventDetectionThreadReader;
         /// <summary>
         /// Event handler for the card insertion
         /// </summary>
@@ -95,18 +96,27 @@ namespace GemCard
         #endregion
 
         /// <summary>
-        /// This method should start a thread that checks for card insertion or removal
+        /// This method should start a thread that checks for card insertion or removal. If a thread already runs on that reader and a new reader is passed end old thread start a new one
         /// </summary>
         /// <param name="Reader"></param>
-        public void StartCardEvents(string Reader)
+        public void StartCardEvents(string reader)
         {
             if (m_thread == null)
             {
                 m_bRunCardDetection = true;
 
                 m_thread = new Thread(new ParameterizedThreadStart(RunCardDetection));
-                m_thread.Start(Reader);
+                m_thread.Start(reader);
+                
+            }else if(m_thread != null && !eventDetectionThreadReader.Equals(reader))
+            {
+                m_thread.Abort();
+                m_thread = null;
+                m_thread = new Thread(new ParameterizedThreadStart(RunCardDetection));
+                m_thread.Start(reader);
             }
+
+            eventDetectionThreadReader = reader;
         }
 
         /// <summary>
