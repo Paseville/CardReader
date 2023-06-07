@@ -224,7 +224,7 @@ namespace CardReaderGUI
 
         private void fillComboBoxes()
         {
-            this.comboBoxFahrer.DataSource = APDUSender.getInstance().cardNativeNFC.ListReaders();
+            this.comboBoxFahrer.DataSource = APDUSender.getInstance().cardNativeDriver.ListReaders();
             this.comboBoxNFC.DataSource = APDUSender.getInstance().cardNativeNFC.ListReaders();
             
         }
