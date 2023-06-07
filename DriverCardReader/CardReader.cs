@@ -17,6 +17,7 @@ namespace DriverCardReader
     /// </summary>
     public class CardReader
     {
+        private bool initalised = false;
         private string[] readers;
         private APDUSender apduSender;
         SmartCard driverCard = null;
@@ -49,14 +50,20 @@ namespace DriverCardReader
         {
             this.statusLabel = statusLabel;
             this.filePath = filePath;
-            apduSender = APDUSender.getInstance();
-            readers = apduSender.cardNative.ListReaders();
-            foreach(string reader in readers){
-                Debug.WriteLine(reader);
+
+            if(initalised == false) {
+                apduSender = APDUSender.getInstance();
+                readers = apduSender.cardNative.ListReaders();
+                foreach (string reader in readers)
+                {
+                    Debug.WriteLine(reader);
+                }
+                apduSender.cardNative.StartCardEvents(readers[0]);
+                apduSender.cardNative.OnCardInserted += CardNative_OnCardInserted;
+                apduSender.cardNative.OnCardRemoved += CardNative_OnCardRemoved;
+                initalised = true;
             }
-            apduSender.cardNative.StartCardEvents(readers[0]);
-            apduSender.cardNative.OnCardInserted += CardNative_OnCardInserted;
-            apduSender.cardNative.OnCardRemoved += CardNative_OnCardRemoved;
+            
         }
 
 
@@ -79,7 +86,7 @@ namespace DriverCardReader
                 driverCard = new SmartCard(filePath);
                 OnStatusChanged("Done Reading Card");
 
-             } catch(Exception e)
+             } catch(SmartCardException e)
             {
                 OnStatusChanged("Error. Reinsert Card");
                 driverCard = null;

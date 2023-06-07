@@ -458,6 +458,35 @@ namespace GemCard
 			return new APDUResponse(ApduData);
 		}
 
+		/// <summary>
+		/// Return UID of NFC Tag
+		/// </summary>
+		/// <returns></returns>
+        public byte[] getUID()
+        {
+            uint RecvLength = (uint)(7 + APDUResponse.SW_LENGTH);
+            byte[] ApduBuffer = new byte[5];
+            byte[] ApduResponse = new byte[7 + APDUResponse.SW_LENGTH];
+            SCard_IO_Request ioRequest = new SCard_IO_Request();
+            ioRequest.m_dwProtocol = m_nProtocol;
+            ioRequest.m_cbPciLength = 8;
+
+
+
+            ApduBuffer[0] = (byte)0xFF;
+            ApduBuffer[1] = (byte)0xCA;
+            ApduBuffer[2] = (byte)0x00;
+            ApduBuffer[3] = (byte)0x00;
+            ApduBuffer[4] = (byte)0x00;
+
+            m_nLastError = SCardTransmit(m_hCard, ref ioRequest, ApduBuffer, (uint)ApduBuffer.Length, IntPtr.Zero, ApduResponse, out RecvLength);
+            ThrowSmartcardException("SCardTransmit", m_nLastError);
+
+            byte[] ApduData = new byte[RecvLength];
+            Buffer.BlockCopy(ApduResponse, 0, ApduData, 0, (int)RecvLength);
+
+            return ApduData;
+        }
 
         /// <summary>
         /// Wraps the PSCS function

@@ -17,6 +17,7 @@ namespace CardReaderGUI
 {
     public partial class Form2 : System.Windows.Forms.Form
     {
+        private CardReader cardReader = new CardReader();
         private string currentDirectoryPath;
         private string username;
         private string password;    
@@ -51,7 +52,6 @@ namespace CardReaderGUI
             {
                 directoryPathText.Text = dialog.SelectedPath;
                 currentDirectoryPath = dialog.SelectedPath;
-                CardReader cardReader = new CardReader();
                 cardReader.Init(dialog.SelectedPath, statusLabel);
                 cardReader.EventHandler += cardReader_statusTextChanged;
                 statusLabel.Text = "Insert a Card";
