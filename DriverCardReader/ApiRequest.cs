@@ -14,15 +14,18 @@ namespace DriverCardReader
     internal class ApiRequest
     {
 
+        public const string apiURL = "http://localhost:2020/driver/";
 
-        public static string makePostRequest(APIRequestSchema schema)
+
+        public static bool makePostRequest(APIRequestSchema schema)
         {
             string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(schema);
             Debug.WriteLine(jsonString);
-            string apiURL = "http://localhost:2020/driver/authenticate";
+            string apiURL = ApiRequest.apiURL + "authenticate";
             HttpWebResponse response= null;
             WebRequest request = WebRequest.Create(apiURL);
             request.Method = "POST";
+            request.Timeout = 1000;
             request.ContentType = "application/json";
             request.ContentLength = jsonString.Length;
             try
@@ -30,22 +33,32 @@ namespace DriverCardReader
                Stream writeBodystream = request.GetRequestStream();
                 byte[] jsonBytesTosend = Encoding.UTF8.GetBytes(jsonString);
                 writeBodystream.Write(jsonBytesTosend , 0, jsonString.Length);
-                response= (HttpWebResponse)request.GetResponse();
+                if(response != null)
+                {
+                    response = (HttpWebResponse)request.GetResponse();
+                }
+                else
+                {
+                    throw new WebException("Api not reachable");
+                    
+                }
+                
 
-            } catch (Exception e) { 
-               Debug.WriteLine("Something went wrong with the request." + e.Message);            
+            } catch (Exception e) {
+                throw new WebException("Api fehler");
             }
 
-            return "0";
+            return true;
         }
 
         public static APIResponseSchema makeGetRequest(string user, string password, string nfcTag)
         {
-            string apiURL = "http://localhost:2020/driver/lastStatus?mac=" + nfcTag +"&user=" + user +"&password="+password ;
+            string apiURL = ApiRequest.apiURL +  "lastStatus?mac=" + nfcTag +"&user=" + user +"&password="+password ;
            
             WebRequest request = WebRequest.Create(apiURL);
             request.Method = "GET";
-
+            request.Timeout = 1000
+;
           
            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
          
@@ -67,15 +80,21 @@ namespace DriverCardReader
 
         public static void makeUpdateRequest(string user, string password, string nfcTag, string timestamp, string status)
         {
-            string apiURL = "http://localhost:2020/driver/updateStatus?mac=" + nfcTag + "&user=" + user + "&password=" + password + "&timestamp=" + timestamp + "&status=" + status;
+            string apiURL = ApiRequest.apiURL + "updateStatus?mac=" + nfcTag + "&user=" + user + "&password=" + password + "&timestamp=" + timestamp + "&status=" + status;
             Debug.Write("updated Tag: " + nfcTag + " Timestamp: " + timestamp);
             HttpWebResponse response = null;
             WebRequest request = WebRequest.Create(apiURL);
             request.Method = "GET";
+            request.Timeout = 1000;
+
 
 
             response = (HttpWebResponse)request.GetResponse();
             
+            if(response == null)
+            {
+                throw new WebException("API nicht erreichbar");
+            }
 
         }
     }

@@ -213,8 +213,17 @@ namespace CardReaderGUI
 
         private void okButtonFahrerkarten_Click(object sender, EventArgs e)
         {
-            cardReader.InitDriver(currentDirectoryPath, statusLabel, comboBoxFahrer.Text);
-            statusLabel.Text = "Insert a Card";
+            Debug.WriteLine(currentDirectoryPath);
+            if(currentDirectoryPath != null) {
+                cardReader.InitDriver(currentDirectoryPath, statusLabel, comboBoxFahrer.Text);
+                statusLabel.Text = "Bereit Karte einzulesen!";
+            }
+            else
+            {
+                statusLabel.Text = "Bitte einen Ordner auswählen!";
+            }
+            
+            
         }
 
         private void comboBoxFahrer_SelectedIndexChanged(object sender, EventArgs e)

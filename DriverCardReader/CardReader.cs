@@ -163,7 +163,14 @@ namespace DriverCardReader
                     {
                         HttpStatusCode wRespStatusCode;
                         try { 
-                            wRespStatusCode = (((HttpWebResponse)e.Response).StatusCode); 
+                            if(e.Response != null) {
+                                wRespStatusCode = (((HttpWebResponse)e.Response).StatusCode);
+                            }
+                            else
+                            {
+                                throw new WebException("Api not reachable");
+                            }
+                            
                         }
                         catch(Exception ex)
                         {
@@ -315,12 +322,12 @@ namespace DriverCardReader
                 OnStatusChanged("Error. Reinsert Card");
                 driverCard = null;
                 Debug.WriteLine("Dont remove the card while its being read");
-            } catch(Exception e)
+            }  catch(Exception e)
             {
-                OnStatusChanged("Error Reading Card");
+                OnStatusChanged("Programmfehler: " + e.Message);
             }
        
-
+            
 
 
         }
